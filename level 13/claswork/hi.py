@@ -10,7 +10,7 @@ print("გილოცავ! სწორად გამოიცანი")
 number = int(input("შეიყვანეთ რაიმე რიცხვი: "))
 
 if number % 2 == 0:
-    print("Even")
+    print("ლუწი")
 else:
-    print("Odd")
+    print("კენთი")
 

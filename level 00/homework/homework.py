@@ -54,7 +54,7 @@ forward(50)
 
 goto(30, 170)
 pendown()
-color("yellow")
+color("red")
 begin_fill
 right(300)
 right(90)
