@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>კლასების მაგალითი</title>
+  <style>
+    .red-text {
+      color: red;
+      font-size: 20px;
+    }
+
+    .blue-background {
+      background-color: lightblue;
+      padding: 10px;
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: green;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <p class="red-text">ეს არის პირველი პარაგრაფი - წითელი ტექსტით.</p>
+  <p class="blue-background">ეს არის მეორე პარაგრაფი - ლურჯი ფონით.</p>
+  <p class="highlight">ეს არის მესამე პარაგრაფი - გამოკვეთილი სტილით.</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="ka">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Class vs ID მაგალითი</title>
+
+  <style>
+    /* class-ს სტილი (შეიძლება ბევრ ელემენტს ეხებოდეს) */
+    .highlight {
+      font-size: 18px;
+      padding: 8px;
+      border-radius: 6px;
+      /* ფონა და ჩრდილი რომ გაიკვირვოს კლასი */
+      background: #f0f8ff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    /* სხვა class-ი, ერთელემენტურად გაერთიანებული წესი */
+    .muted {
+      color: #666;
+      font-style: italic;
+    }
+
+    /* id-ს სტილი — ჩვეულებრივ უფრო სპეციფიკურია */
+    #first {
+      /* id-ის წესი აქ ნაწილობრივ გადააწერის class-ის თვისებებს */
+      border: 2px solid #0077cc;
+      /* id-ით გამოვყავი ისევ ფონიც */
+      background: linear-gradient(180deg, #e6f7ff 0%, #ffffff 100%);
+    }
+
+    /* კიდევ ერთი id*/
+    #second {
+      border: 2px dashed #cc7700;
+      background: linear-gradient(180deg, #fff7e6 0%, #ffffff 100%);
+    }
+
+    /* small layout for demo */
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      padding: 28px;
+      background: #fafafa;
+    }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <!-- ეს პირველი p აქვს როგორც class-ი 'highlight', ასევე id 'first' -->
+    <!-- class-ი მთავარ სტილებს მიჰყავს, id კი დაუმატებს/გაამშრალებს კონკრეტულ ბორდერს -->
+    <p id="first" class="highlight">
+      ეს ტექსტი არის პირველი აბზაცი — მას აქვს <strong>class="highlight"</strong> და <strong>id="first"</strong>.
+      ერთხელვე გამოიყენება id და სხვადასხვათომიგები class.
+    </p>
+
+    <!-- ეს მეორე p-ც აქვს both: class და id. აქ ვამატეთ მეორე class 'muted' რათა ნახო
+         როგორ შეიძლება ელემენტს ჰქონდეს მრავალი კლასი ან ჭეშმარიტად განსხვავებული ეფექტი -->
+    <p id="second" class="highlight muted">
+      ეს მეორე აბზაცი აქვს <strong>class="highlight muted"</strong> და <strong>id="second"</strong>.
+      class 'highlight' განსაზღვრავს საერთო სტილს, 'muted' ფერ-შეხედულებას და იდ 'second' კიდე ბორდერს აქცევს დეშედს.
+    </p>
+  </main>
+</body>
+</html>
+თუ გინდა, შემიძლია:
+

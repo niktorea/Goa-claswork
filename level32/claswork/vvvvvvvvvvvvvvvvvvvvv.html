@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="ka">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pseudo-selectors demo</title>
+  <style>
+    /*
+      კომენტარი: "Pseudo-selector" (Pseudo-class / Pseudo-element)
+      - pseudo-class არის სპეციალური სიტუაციის მაგალითზე სელექტორი, მაგალითად :hover, :focus, :first-child
+      - pseudo-element არის ელემენტის ნაწილზე მიზანი (მაგ. ::before, ::after, ::first-line)
+      ქვემოთ ვაჩვენებ პრაქტიკაში ყველაზე გავრცელებულ pseudo-selectors-ებს.
+    */
+
+    /* 1) link-related pseudo-classes */
+    a { text-decoration: none; color: darkblue; }
+    a:link { outline: 1px dashed transparent; }   /* უნახავი მაგალითი როცა ლინკი ჯერ არ ჰქონა კლიკი */
+    a:visited { color: purple; }                  /* თუ უკვე დააშვეს (visited) */
+    a:hover { text-decoration: underline; }       /* მაუსის ქვევით გარე ეფექტი */
+    a:active { transform: translateY(1px); }      /* კლიკის დროს */
+
+    /* 2) structural pseudo-classes */
+    ul.demo li { padding: 8px; }
+    ul.demo li:first-child { font-weight: bold; }          /*სიის პირველი ელემენტი*/
+    ul.demo li:last-child { font-style: italic; }          /*სიის ბოლო ელემენტი*/
+    ul.demo li:nth-child(2n) { background: rgba(0,0,0,0.04); } /*ყოველი მეორე*/
+    ul.demo li:nth-child(3n+1) { color: rgb(93, 255, 201); }              /*მესამე+1 ნიმუში*/
+    ul.demo li:only-child { background: #fde; }             /*თუ ერთადერთია მშობლისა*/
+    <!doctype html>
+<html lang="ka">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pseudo-selectors demo</title>
+  <style>
+    /*
+      კომენტარი: "Pseudo-selector" (Pseudo-class / Pseudo-element)
+      - pseudo-class არის სპეციალური სიტუაციის მაგალითზე სელექტორი, მაგალითად :hover, :focus, :first-child
+      - pseudo-element არის ელემენტის ნაწილზე მიზანი (მაგ. ::before, ::after, ::first-line)
+      ქვემოთ ვაჩვენებ პრაქტიკაში ყველაზე გავრცელებულ pseudo-selectors-ებს.
+    */
+
+    /* 1) link-related pseudo-classes */
+    a { text-decoration: none; color: darkblue; }
+    a:link { outline: 1px dashed transparent; }   /* უნახავი მაგალითი როცა ლინკი ჯერ არ ჰქონა კლიკი */
+    a:visited { color: purple; }                  /* თუ უკვე დააშვეს (visited) */
+    a:hover { text-decoration: underline; }       /* მაუსის ქვევით გარე ეფექტი */
+    a:active { transform: translateY(1px); }      /* კლიკის დროს */
+
+    /* 2) structural pseudo-classes */
+    ul.demo li { padding: 8px; }
+    ul.demo li:first-child { font-weight: bold; }          /*სიის პირველი ელემენტი*/
+    ul.demo li:last-child { font-style: italic; }          /*სიის ბოლო ელემენტი*/
+    ul.demo li:nth-child(2n) { background: rgba(0,0,0,0.04); } /*ყოველი მეორე*/
+    ul.demo li:nth-child(3n+1) { color: #064; }              /*მესამე+1 ნიმუში*/
+    ul.demo li:only-child { background: #fde; }             /*თუ ერთადერთია მშობლისა*/
+    p:empty { opacity: 0.6; font-style: italic; }           /*თუ შორის არაფერი წერია (empty)*/
+
+    /* 3) type-related */
+    p::first-line { font-variant: small-caps; }             /*პსევდო ელემენტი: აბრტყელ ხაზზე პირველი სტილი*/
+    p::first-letter { font-size: 2.2em; float: left; margin-right: 6px; } /*პირველი ასო*/
+
+    /* 4) form-related pseudo-classes */
+    input, textarea { padding: 6px; border: 1px solid #ccc; border-radius: 6px; }
+    input:focus, textarea:focus { outline: 3px solid rgba(20,120,220,0.18); border-color: #188; }
+    input:disabled { background: #f3f3f3; color: #999; }
+    input:required { box-shadow: 0 0 0 3px rgba(255,0,0,0.03) inset; }
+    input:optional { border-style: dashed; }
+    input:checked + label { font-weight: 700; }               /*checked სტატუსის მიმდებარე label*/
+
+    /* 5) :not(), :has() (მიუხედავად იმისა რომ :has() ზოგი ძველი ბრაუზერში არ მუშაობს, კოდი დატოვებულია როგორც მაგალითი) */
+    .box:not(.special) { border: 2px solid #ddd; }
+    /* .container:has(.special) { background: #efe; }  - :has() შედარებით ახალია და შეიძლება არ მუშაობდეს ყველა ბრაუზერში */
+
+    /* 6) ::before და ::after - pseudo-elements */
+    h1::before { content: "🌟 "; }
+    h1::after { content: " ✨"; }
+
+    /* 7) :hover, :focus-visible და :focus-within */
+    .card { padding: 12px; border-radius: 10px; transition: transform .14s ease, box-shadow .14s ease; }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+    form:focus-within { box-shadow: 0 0 0 4px rgba(0,120,180,0.06); }
+    button:focus-visible { outline: 3px solid rgba(0,0,0,0.12); }
+
+    /* 8) :target - ანკერით მიზნობრივი ელემენტი */
+    #info { padding: 10px; border-left: 4px solid #28a; display: none; }
+    #info:target { display: block; background: #f0f8ff; }
+
+    /* 9) :lang და :dir - სხვადასხვა ენისა და მიმართულების მიმართ */
+    p:lang(ka) { font-family: 'Noto Sans', sans-serif; }
+    p[dir="rtl"]:dir(rtl) { text-align: right; }
+
+    /* 10) accessibility-related: :focus-visible is above; add :disabled style for button */
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* 11) ::marker for list markers */
+    ul.demo li::marker { font-size: 1.2em; color: #b22; }
+
+    /* 12) small utility */
+    body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', sans-serif; padding: 20px; line-height: 1.45; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .panel { background: #fff; border: 1px solid #eee; padding: 12px; border-radius: 10px; }
+    .checkboxes label { margin-left: 6px; }
+
+  </style>
+</head>
+<body>
+  <h1>Pseudo-selectors მაგალითი</h1>
+
+  <!-- დეტალური ინფო -->
+  <div class="grid">
+    <div class="panel card">
+      <h2>მონაცემების ილუსტრაცია</h2>
+      <p>ეს გვერდი აჩვენებს ბევრი საერთო pseudo-class და pseudo-element გამოყენებას: :hover, :focus, :active, :visited, :first-child, :last-child, :nth-child(), ::before, ::after, :checked, :disabled, :required, :optional, :empty, :target და სხვ.</p>
+
+      <h3>ლინკები</h3>
+      <p>გადახედეთ ლინკებს და დააჭირეთ ერთი ან რამდენიმე - თანაბრად იხილავთ :hover/:visited ეფექტებს.</p>
+      <p>
+        <a href="#info">Open #info (use :target)</a> —
+        <a href="https://example.com" target="_blank">გარე საიტი</a>
+      </p>
+
+      <h3>სია (structural selectors)</h3>
+      <ul class="demo">
+        <li>პირველი (first-child)</li>
+        <li>მეორე (nth-child)</li>
+        <li>მესამე (nth-child)</li>
+        <li>ბოლო (last-child)</li>
+      </ul>
+
+    </div>
+
+    <div class="panel">
+      <h3>ფორმის ელემენტები (form-related)</h3>
+      <form>
+        <div style="display:flex;gap:8px;flex-direction:column;max-width:320px;">
+          <label>სახელი (required)
+            <input type="text" placeholder="შეატყობინეთ სახელი" required>
+          </label>
+
+          <label>ელ.ფოსტა (optional)
+            <input type="email" placeholder="example@mail.com">
+          </label>
+
+          <label>შენიშვნა
+            <textarea placeholder="ჩაწერეთ ტექსტი"></textarea>
+          </label>
+
+          <div class="checkboxes">
+            <input type="checkbox" id="agree" checked>
+            <label for="agree">ვეთანხმები წესებს</label>
+          </div>
+
+          <div>
+            <input type="radio" id="r1" name="op" checked>
+            <label for="r1">ჩართული</label>
+            <input type="radio" id="r2" name="op">
+            <label for="r2">გამორთული</label>
+          </div>
+
+          <button type="submit">გაგზავნა</button>
+          <button type="button" disabled>გამორთულია (disabled)</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="panel">
+      <h3>პსევდო ელემენტები</h3>
+      <p>პირველი ხაზის და პირველი ასო მაგალითი:</p>
+      <p>ეს ტექსტი აჩვენებს ::first-line და ::first-letter პსევდო-ელემენტებს — მეტი თვალსაჩინოთ, აქ რაღაც სიტყვები დასაწყისში.</p>
+
+      <h3>::before / ::after</h3>
+      <h2>ჩასმული ნიშანი</h2>
+      <p class="box">სტანდარტული ყუთი (box) რომელიც გააჩნია ფორმატის ცვლილებას :not(.special)-ით.</p>
+    </div>
+
+    <div class="panel">
+      <h3>დამატებითი</h3>
+      <p id="info">ეს ბლოკი გამოჩნდება როცა გახსნით ლინკს <code>#info</code> (გამოყენებულია :target).</p>
+
+      <p dir="rtl">ეს მაგალითი დაყენებულია <code>dir="rtl"</code> გამოყენებით — და :dir() პსევდო არითმევია.</p>
+
+      <p class="lang_example" lang="ka">ეს პარაგრაფი არის ქართული (იმიტირებული): :lang(ka) მოქმედებს მასზე.</p>
+
+      <ul>
+        <li>ჩამონათვალი 1</li>
+        <li>ჩამონათვალი 2</li>
+        <li>ჩამონათვალი 3</li>
+      </ul>
+
+    </div>
+
+  </div>
+
+  <!-- ნაჩვენებია თუ როგორ გამოიყენება ::marker, :empty და სხვა -->
+  <p></p> <!-- ეს პარაგრაფი არის empty და ამიტომ მიიღებს :empty სტილს -->
+
+  <footer style="margin-top:20px; font-size:0.9em; color:#666;">
+    <!-- Footer -->
+    ეს გვერდი არის პედაგოგიური დემო და აჩვენებს ყველაზე ხშირად გამოყენებულ pseudo-selectors-ებს.
+  </footer>
+
+</body>
+</html>
+
+
+<!-- --------------- დამატებული ნაწილი: nth-child ახსნა და ოჯახის ცხრილი --------------- -->
+
+<!--
+  2) კომენტარებით ახსენით, რას აკეთებს :nth-child
+
+  :nth-child(selector) არის CSS structural pseudo-class რომელიც არჩევს ელემენტებს მათი მშობლის შვილების თანმიმდევრულ პოზიციაზე.
+  მაგალითად:
+    - li:nth-child(1) -> აირჩევს მშობლის პირველი შვილს (პოზიცია 1)
+    - li:nth-child(2n) -> აირჩევს ყველა ელემენტს 2-ის ინტერვალით (2,4,6...)
+    - tr:nth-child(odd) -> აირჩევს ყველა კენტ რიგს (1,3,5...)
+    - tr:nth-child(even) -> აირჩევს ყველა ლუწ რიგს (2,4,6...)
+
+  შენიშვნა:
+    - :nth-child ითვლის ელემენტებს მათი მშობლის პირდაპირი შვილების მიხედვით; თუ გაქვთ <thead> ან სხვა ელემენტები, ანგარიშვის კონტექსტი იმ მშობელზე ხდება.
+    - შეგიძლია გამოიყენო ფორმულები, მაგ: (3n+1) ან სიტყვები `odd`/`even` ან კონკრეტული ნუმერაცია.
+-->
+
+<section>
+  <h2>:nth-child პრაქტიკული მაგალითი და ოჯახის ცხრილი</h2>
+  <!--
+    3) შექმენით ცხრილი, სადაც შეინახავთ თქვენი ოჯახის ნებისმიერ ინფორმაციას,
+       ყოველი ლუწი tr იყოს წითელი ხოლო ყოველი კენტი tr იყოს ყვითელი
+
+    ქვემოთ CSS–ში გამოვიყენეთ `tr:nth-child(even)` და `tr:nth-child(odd)` რათა სტილები მივანიჭოთ შესაბამის რიგებს.
+  -->
+
+  <style>
+    /* ცხრილის სტილი */
+    table.family { border-collapse: collapse; width: 100%; max-width: 720px; }
+    table.family th, table.family td { border: 1px solid #bbb; padding: 8px; text-align: left; }
+
+    /* ხაზის ფერები: ყოველი ლუწი (even) იქნება წითელი, ყოველი კენტი (odd) იქნება ყვითელი */
+    table.family tr:nth-child(even) { background-color: #f88; } /* ლუწი: 2,4,6... */
+    table.family tr:nth-child(odd)  { background-color: #ffeb99; } /* კენტი: 1,3,5... */
+
+    /* თუ გექნებათ thead და tbody და არ გინდათ header–ის ფერები მივაწეროთ, გამოიყენეთ tbody tr:nth-child(...) */
+    /* მაგალითად: tbody tr:nth-child(even) { ... } */
+  </style>
+
+  <table class="family" aria-label="Family information">
+    <thead>
+      <tr>
+        <th>სახელი</th>
+        <th>ადგილმდებარეობა</th>
+        <th>დაბადების წელი</th>
+        <th>კავშირი</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Nika</td>
+        <td>თბილისი</td>
+        <td>2008</td>
+        <td>მე (შენი სახელით შეცვალეთ)</td>
+      </tr>
+      <tr>
+        <td>Gela</td>
+        <td>ბათუმი</td>
+        <td>1980</td>
+        <td>მამა</td>
+      </tr>
+      <tr>
+        <td>Manana</td>
+        <td>თბილისი</td>
+        <td>1983</td>
+        <td>დედა</td>
+      </tr>
+      <tr>
+        <td>Alex</td>
+        <td>ქუთაისი</td>
+        <td>2010</td>
+        <td>ძმა</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top:10px; font-size:0.9em; color:#555;">შენ შეგიძლია შეცვალო ცხრილის მონაცემები: დაემატოს თუ ამოუღო ხაზი ან შეცვალო ტექსტი. თუ გინდა, გავაკეთო CSV/Excel ფაილი ამ მონაცემით.</p>
+</section>
+
+<!-- --------------- დასასრული --------------- -->

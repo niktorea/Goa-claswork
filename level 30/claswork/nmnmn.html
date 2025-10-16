@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ka">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pixels vs Percentages — სურათების ზომები</title>
+  <style>
+    /* კონტეინერი რომელიც გვაჩვენებს ყველაფრის parent-ს (პერეცენტები აქედან გამოითვლება) */
+    .container {
+      width: 800px; /* შეცვალეთ ან გაუშვით responsive შედეგის სანახავად */
+      margin: 30px auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    .example {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    figure { margin: 0; width: 100%; }
+    figcaption { margin-top: 8px; font-size: 14px; color: #333; }
+
+    /* სურათი რომელსაც ვაკონტროლებთ პიქსელებით */
+    .img-px {
+      width: 300px; /* 固定 ფართობი — ყოველთვის 300px სიგანე */
+      height: auto; /* პროორციული სიმაღლე */
+      display: block;
+    }
+
+    /* სურათი რომელიც პროცენტებით ზომდება */
+    .img-percent {
+      width: 50%; /* პროცენტს ნიშავს parent-ის (figure-ს ან .container-ის, რომელსაც ეკუთვნის) სიგანიდან 50% */
+      height: auto;
+      display: block;
+      max-width: 100%; /* დამატებით უსაფრთხოება: არ გავიდეს parent-ის ზემოთ */
+    }
+
+    /* ნაკლები სტილი ვიზუალურად დასახმარებლად */
+    .note { margin-top: 18px; font-size: 13px; color: #555; }
+
+    /* responsive გაშვება: როცა ეკრანი პატარაა, გადა arrange-დებს ქვემოდან */
+    @media (max-width: 640px) {
+      .container { width: 94%; }
+      .example { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Pixels vs Percentages — სურათების ზომები</h1>
+
+    <p class="note">0) პროცენტულად მითითებული ზომა მიზნად ისახავს **პერიოდულად(parent)-ის** სიგანეს. თუ სურათი პირდაპირ body–ის შვილია, პროცენტი განისაზღვრება body (ან viewport)-ის სიგანით; თუ სურათი არის div-ის შიგნით — პროცენტი გექნება იმ div-ის სიგანის მიხედვით. სიმაღლე (height) პროცენტით მუშაობს მხოლოდ მაშინ, როდესაც parent-ს აქვს განსაზღვრული სიმაღლე.</p>
+
+    <div class="example">
+      <figure>
+        <!-- ეს სურათი ზომდება პიქსელებით -->
+        <img class="img-px" src="https://via.placeholder.com/800x500.png?text=Fixed+300px+width" alt="პიქსელური სურათი">
+        <figcaption>სურათი #1 — width: <strong>300px</strong> (fixed).</figcaption>
+      </figure>
+
+      <figure>
+        <!-- ეს სურათი ზომდება პროცენტებით (relative to its parent figure/container) -->
+        <img class="img-percent" src="https://via.placeholder.com/800x500.png?text=50%+of+container" alt="პროცენტული სურათი">
+        <figcaption>სურათი #2 — width: <strong>50%</strong> (relative to parent).</figcaption>
+      </figure>
+    </div>
+
+    <p class="note">თუ საგრძნობლად გსურთ responsive ხასიათი — ხშირად იყენებენ <code>max-width: 100%</code> და <code>height: auto</code> კომბინაციას, რათა სურათი არ გადაფაროს parent-ს და შეგირდდეს ეკრანის ზომას.</p>
+
+    <p class="note">შეამოწმეთ: შეცვალეთ .container-ის width ან უბრალოდ დააჭირეთ ბრაუზერის ფანჯრის სიგანეს და ნახავთ, როგორ იცვლება პროცენტული სურათი, მაშინ როცა პიქსელური ყოველთვის უცვლელი სიგანეა.</p>
+  </div>
+</body>
+</html>
