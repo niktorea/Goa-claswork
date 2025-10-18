@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>Default Value მაგალითები</title>
+</head>
+<body>
+  <h2>0) Default value ახსნა</h2>
+  <p>
+    <b>Default value</b> ნიშნავს მნიშვნელობას, რომელიც ფუნქციის პარამეტრს ავტომატურად ენიჭება,
+    თუ ამ პარამეტრს არ მივაწოდებთ ფუნქციის გამოძახებისას.
+  </p>
+
+  <h2>Python ფუნქციების მაგალითები:</h2>
+
+  <pre>
+  # 1) 
+  def greet(name="მეგობარო"):
+      print(f"გამარჯობა, {name}!")
+
+  # 2) 
+  def multiply(a, b=2):
+      return f"რიცხვების ნამრავლი არის {a * b}"
+
+  # 3) 
+  def welcome(country="საქართველო"):
+      print(f"კეთილი იყოს თქვენი მობრძანება {country}-ში!")
+
+  # 4) 
+  def power(base, exp=3):
+      return base ** exp
+
+  # 5) 
+  def info(name, age=18):
+      print(f"სახელი: {name}, ასაკი: {age}")
+  </pre>
+
+</body>
+</html>
+
+
