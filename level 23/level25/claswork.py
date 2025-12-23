@@ -23,11 +23,3 @@ Verification(20, 2)
 Verification(17, 3)
 Verification(25, 0)
 
-
-
-
-
-
-
-
-

@@ -1,0 +1,54 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS მაგალითები</title>
+
+    <!-- 
+    0) განსხვავება inline, internal და external CSS შორის:
+    Inline CSS -> იწერება პირდაპირ ელემენტზე (style ატრიბუტით)
+    Internal CSS -> იწერება <style> ტეგში HTML ფაილის შიგნით
+    External CSS -> იწერება ცალკე .css ფაილში და ერთდება <link> ტეგით
+    -->
+
+    <!-- Internal CSS (2) -->
+    <style>
+        /* ყველა <h1> ტექსტი წითელი იქნება */
+        h1 {
+            color: red;
+        }
+
+        /* (4) ყველა <div>-ს ყვითელი ფონი ექნება */
+        div {
+            background-color: yellow;
+        }
+    </style>
+
+    <!-- External CSS ჩასართავად (3) -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- (1) Inline CSS: ერთი <p> ლურჯად -->
+    <p style="color: blue;">ეს ტექსტი ლურჯია (inline CSS)</p>
+
+    <!-- (2) Internal CSS: ყველა <h1> წითელია -->
+    <h1>ეს არის წითელი სათაური (internal CSS)</h1>
+    <h1>მეორე წითელი სათაური</h1>
+
+    <!-- (3) External CSS გამოყენება: -->
+    <p>ეს ტექსტი მწვანეა (external CSS)</p>
+
+    <!-- (4) ყვითელი ფონის მქონე div -->
+    <div>მე ვარ ყვითელი div</div>
+
+    <!-- (5) Inline CSS ღილაკი -->
+    <button style="width: 100px; background-color: red;">წითელი ღილაკი</button>
+
+</body>
+</html>
